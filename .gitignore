@@ -1,0 +1,19 @@
+# cached nflverse pulls. big, and R/pull_data.R can rebuild them
+data/raw/
+data/processed/
+
+# renv library. the lockfile is tracked, the library is not
+renv/library/
+renv/staging/
+renv/python/
+
+# editor and session files
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+
+# os files
+Thumbs.db
+desktop.ini
+.DS_Store
