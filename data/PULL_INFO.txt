@@ -1,0 +1,5 @@
+pulled: 2026-09-09 23:48
+nflreadr: 1.5.1
+contracts rows: 52751
+draft_picks rows: 12927
+players rows: 24826
