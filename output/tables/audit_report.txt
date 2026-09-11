@@ -1,0 +1,107 @@
+contract data audit, 2026-09-10
+rows: 52751   columns: 26
+
+[year_signed coverage]
+ year    n
+    0 1106
+ 1983    2
+ 1985    3
+ 1986    1
+ 1987    1
+ 1988    1
+ 1989    6
+ 1990    6
+ 1991    6
+ 1992    7
+ 1993   15
+ 1994   12
+ 1995   21
+ 1996   19
+ 1997   21
+ 1998   31
+ 1999   28
+ 2000   29
+ 2001   40
+ 2002   53
+ 2003   65
+ 2004  125
+ 2005  139
+ 2006  192
+ 2007  182
+ 2008  265
+ 2009  282
+ 2010  393
+ 2011  680
+ 2012  813
+ 2013  917
+ 2014 1155
+ 2015 1555
+ 2016 2079
+ 2017 3736
+ 2018 3755
+ 2019 3846
+ 2020 4241
+ 2021 4736
+ 2022 4815
+ 2023 4719
+ 2024 4765
+ 2025 4930
+ 2026 2958
+rows with year_signed == 0: 1106
+
+[missing by column]
+  player                      0  (0.0%)
+  position                    0  (0.0%)
+  team                        0  (0.0%)
+  is_active                   0  (0.0%)
+  year_signed                 0  (0.0%)
+  years                      24  (0.0%)
+  value                       0  (0.0%)
+  apy                         0  (0.0%)
+  guaranteed                  0  (0.0%)
+  apy_cap_pct                 0  (0.0%)
+  inflated_value              0  (0.0%)
+  inflated_apy                0  (0.0%)
+  inflated_guaranteed         0  (0.0%)
+  player_page                 0  (0.0%)
+  otc_id                      0  (0.0%)
+  gsis_id                  3560  (6.7%)
+  height                   1239  (2.3%)
+  weight                   1260  (2.4%)
+  college                   592  (1.1%)
+  draft_year                280  (0.5%)
+  draft_round             29788  (56.5%)
+  draft_overall           29848  (56.6%)
+  draft_team                324  (0.6%)
+  date_of_birth           12221  (23.2%)
+  season_history             43  (0.1%)
+  contract_history           43  (0.1%)
+
+[zeros in money columns]
+  value              73 zeros (0.1%)
+  apy                94 zeros (0.2%)
+  guaranteed      35159 zeros (66.7%)
+  apy_cap_pct      1253 zeros (2.4%)
+
+[units] max value = 450, max apy = 64
+
+[apy_cap_pct precision]
+distinct nonzero values: 192 across 52751 rows
+identical to round(x, 3): TRUE
+
+[position labels]
+
+  WR   CB  IDL   LB   ED    S   RB   TE   QB   RT   LG   LT   RG    C    K    P   LS   FB 
+7660 6197 5246 4956 4017 3920 3908 3536 2199 1840 1799 1777 1702 1544  938  585  526  401 
+distinct positions: 18
+
+[duplicates] repeated rows on player + terms: 6726
+
+[contract_type recovery]
+deduped contracts: 46025
+matched a type: 43912 (95.4%)
+
+       SFA   Practice       UDFA        UFA    Drafted  Extension       ERFA      Other        RFA  Franchise Transition 
+     13464      11896       5367       4742       4724       1205       1021        666        618        191         12 
+           
+         6 
