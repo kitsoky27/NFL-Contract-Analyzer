@@ -1,4 +1,4 @@
-# NFL contract analyzer
+# NFL Contract Analyzer
 
 A pricing model for NFL player contracts. This is a labor economics
 project about how a market prices productivity.
