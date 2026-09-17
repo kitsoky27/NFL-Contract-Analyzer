@@ -1,0 +1,26 @@
+contract data on cap share, 2026-09-17
+rows: 52751 -> 46025 after dropping traded-contract repeats
+matched to a cap year: 44565
+
+[apy as share of cap, all deals]
+  50%     0.37%
+  75%     0.50%
+  90%     1.64%
+  99%     8.91%
+  100%   24.47%
+
+share of deals under 1% of the cap: 85.9%
+share with nothing guaranteed: 62.2%
+
+[biggest deals on record, by cap share]
+          player position year_signed years apy_m pct_of_cap
+      Joe Burrow       QB        2023     5  55.0       24.5
+   Aaron Rodgers       QB        2022     5  50.3       24.1
+      Josh Allen       QB        2021     6  43.0       23.6
+  Russell Wilson       QB        2022     5  49.0       23.5
+    Dak Prescott       QB        2024     4  60.0       23.5
+  Justin Herbert       QB        2023     5  52.5       23.4
+   Lamar Jackson       QB        2023     5  52.0       23.1
+ Patrick Mahomes       QB        2020    10  45.0       22.7
+     Jalen Hurts       QB        2023     5  51.0       22.7
+    Kyler Murray       QB        2022     5  46.1       22.1
