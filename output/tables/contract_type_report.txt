@@ -1,0 +1,35 @@
+contract type recovery, 2026-09-18
+contracts listed in the nested history: 54723
+keys appearing more than once: 6670
+of those, repeats agree on type: 6398 (95.9%)
+keys flagged ambiguous: 272
+
+[types available]
+
+       SFA   Practice       UDFA    Drafted        UFA  Extension       ERFA      Other        RFA  Franchise Transition 
+     13464      11926       5394       4750       4748       1207       1025        664        624        188         12 
+           
+         9 
+
+[match rate against the cap-share table]
+deals: 44565
+matched a type: 43483 (97.6%)
+
+[match rate by era]
+     era     n matched_pct
+  <=2010  1498        99.7
+ 2011-14  3358        98.1
+ 2015-18  9843        90.7
+ 2019-22 15033        99.8
+   2023+ 14833        99.6
+
+[what stays unmatched, by year]
+ year_signed   n
+        2016 533
+        2015 305
+        2017  70
+        2026  56
+        2014  39
+        2013  12
+        2018  12
+        2022  11
