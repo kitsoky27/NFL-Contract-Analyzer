@@ -1,11 +1,11 @@
-salary cap table check, 2026-09-11
+salary cap table check, 2026-09-22
 cap table covers 1994 to 2026 (32 seasons, 2010 omitted as uncapped)
 
-rows: 52751 -> 46025 after dropping traded-contract repeats
-matched to a cap year: 44565 (rest are year_signed 0, pre-1994, or the 2010 uncapped season)
+rows: 52912 -> 46166 after dropping traded-contract repeats
+matched to a cap year: 44706 (rest are year_signed 0, pre-1994, or the 2010 uncapped season)
 
 [agreement with over the cap's own apy_cap_pct]
-rows compared: 44471
+rows compared: 44615
 median absolute difference: 0.0228 pp
 within rounding tolerance (0.05 pp): 100.00%
 off by more than 0.5 pp: 0.00%
@@ -36,4 +36,4 @@ largest single difference: 0.0500 pp
         2023 71   224.8 224.8  0.0
         2024 94   255.4 255.4  0.0
         2025 98   278.8 279.2 -0.4
-        2026 81   301.1 301.2 -0.1
+        2026 84   301.1 301.2 -0.1

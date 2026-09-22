@@ -1,29 +1,29 @@
-market sample, 2026-09-19
+market sample, 2026-09-22
 
 [how the sample was built]
                                 step  rows  lost
-       start: contracts on cap share 44565    NA
-   drop: type could not be recovered 43483  1082
- drop: type ambiguous across repeats 43195   288
-        keep: UFA and Extension only  5785 37410
-    drop: signed before the 2011 cba  5465   320
-  drop: zero apy or zero total value  5463     2
+       start: contracts on cap share 44706    NA
+   drop: type could not be recovered 43636  1070
+ drop: type ambiguous across repeats 43347   289
+        keep: UFA and Extension only  5795 37552
+    drop: signed before the 2011 cba  5475   320
+  drop: zero apy or zero total value  5473     2
 
 [what is in it]
-contracts: 5463   players: 2981
+contracts: 5473   players: 2987
 years: 2011 to 2026
-UFA 4501, Extension 962
-median apy: 1.47% of cap, 90th pct: 6.70%
+UFA 4502, Extension 971
+median apy: 1.48% of cap, 90th pct: 6.72%
 nothing guaranteed: 6.4%
 
 [contracts per year]
 
 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 
- 138  159  191  233  270  334  349  347  372  365  396  436  443  483  506  441 
+ 138  159  191  233  271  334  349  347  372  365  396  436  443  483  506  450 
 
 [contracts per position]
 
-IDL  WR  LB  CB   S  ED  QB  RB  TE  RT   C  LG  LT  RG  LS   K   P  FB 
-562 556 538 536 484 459 341 334 334 203 197 190 168 167 117 112 106  59 
+IDL  WR  LB  CB   S  ED  QB  TE  RB  RT   C  LG  LT  RG  LS   K   P  FB 
+561 557 538 537 484 460 343 337 335 203 197 191 168 167 117 112 106  60 
 
-position-year cells: 285   median size: 15   cells under 5: 28
+position-year cells: 285   median size: 15   cells under 5: 27

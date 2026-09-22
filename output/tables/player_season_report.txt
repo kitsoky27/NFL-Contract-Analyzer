@@ -1,0 +1,25 @@
+player season production table, 2026-09-22
+stats rows: 50821 seasons 1999-2026
+snap rows:  327605 seasons 2013-2026
+
+[snap counts to gsis id]
+game rows with no gsis match: 222 of 313469 (0.1%)
+distinct players affected: 28
+
+[result]
+player seasons: 53209   players: 12015
+seasons: 1999 to 2026
+have box score stats: 95.5%
+have snap counts:     53.9%
+
+[snap coverage by position group]
+ position_group    n with_snaps
+             DB 9996       52.9
+             DL 7789       51.8
+             LB 7591       52.6
+             OL 6647       50.9
+             WR 5817       53.2
+             RB 4733       48.1
+             TE 3241       53.3
+           SPEC 2853       50.8
+             QB 2121       48.6

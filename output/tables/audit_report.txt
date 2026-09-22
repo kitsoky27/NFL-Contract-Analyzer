@@ -1,11 +1,11 @@
-contract data audit, 2026-09-10
-rows: 52751   columns: 26
+contract data audit, 2026-09-22
+rows: 52912   columns: 26
 
 [year_signed coverage]
  year    n
     0 1106
  1983    2
- 1985    3
+ 1985    4
  1986    1
  1987    1
  1988    1
@@ -28,25 +28,25 @@ rows: 52751   columns: 26
  2005  139
  2006  192
  2007  182
- 2008  265
+ 2008  264
  2009  282
  2010  393
- 2011  680
- 2012  813
- 2013  917
- 2014 1155
+ 2011  679
+ 2012  815
+ 2013  909
+ 2014 1161
  2015 1555
- 2016 2079
- 2017 3736
- 2018 3755
- 2019 3846
- 2020 4241
- 2021 4736
- 2022 4815
- 2023 4719
- 2024 4765
- 2025 4930
- 2026 2958
+ 2016 2074
+ 2017 3734
+ 2018 3757
+ 2019 3844
+ 2020 4240
+ 2021 4722
+ 2022 4818
+ 2023 4718
+ 2024 4777
+ 2025 4931
+ 2026 3127
 rows with year_signed == 0: 1106
 
 [missing by column]
@@ -65,43 +65,43 @@ rows with year_signed == 0: 1106
   inflated_guaranteed         0  (0.0%)
   player_page                 0  (0.0%)
   otc_id                      0  (0.0%)
-  gsis_id                  3560  (6.7%)
+  gsis_id                  3562  (6.7%)
   height                   1239  (2.3%)
   weight                   1260  (2.4%)
-  college                   592  (1.1%)
-  draft_year                280  (0.5%)
-  draft_round             29788  (56.5%)
-  draft_overall           29848  (56.6%)
-  draft_team                324  (0.6%)
-  date_of_birth           12221  (23.2%)
-  season_history             43  (0.1%)
-  contract_history           43  (0.1%)
+  college                   596  (1.1%)
+  draft_year                282  (0.5%)
+  draft_round             29888  (56.5%)
+  draft_overall           29947  (56.6%)
+  draft_team                326  (0.6%)
+  date_of_birth           12270  (23.2%)
+  season_history             45  (0.1%)
+  contract_history           45  (0.1%)
 
 [zeros in money columns]
-  value              73 zeros (0.1%)
-  apy                94 zeros (0.2%)
-  guaranteed      35159 zeros (66.7%)
-  apy_cap_pct      1253 zeros (2.4%)
+  value              70 zeros (0.1%)
+  apy                91 zeros (0.2%)
+  guaranteed      35300 zeros (66.7%)
+  apy_cap_pct      1251 zeros (2.4%)
 
 [units] max value = 450, max apy = 64
 
 [apy_cap_pct precision]
-distinct nonzero values: 192 across 52751 rows
+distinct nonzero values: 192 across 52912 rows
 identical to round(x, 3): TRUE
 
 [position labels]
 
-  WR   CB  IDL   LB   ED    S   RB   TE   QB   RT   LG   LT   RG    C    K    P   LS   FB 
-7660 6197 5246 4956 4017 3920 3908 3536 2199 1840 1799 1777 1702 1544  938  585  526  401 
+  WR   CB  IDL   LB   ED   RB    S   TE   QB   RT   LG   LT   RG    C    K    P   LS   FB 
+7695 6227 5261 4970 4022 3924 3922 3563 2197 1844 1815 1773 1701 1545  944  581  521  407 
 distinct positions: 18
 
-[duplicates] repeated rows on player + terms: 6726
+[duplicates] repeated rows on player + terms: 6746
 
 [contract_type recovery]
-deduped contracts: 46025
-matched a type: 43912 (95.4%)
+deduped contracts: 46166
+matched a type: 44065 (95.4%)
 
        SFA   Practice       UDFA        UFA    Drafted  Extension       ERFA      Other        RFA  Franchise Transition 
-     13464      11896       5367       4742       4724       1205       1021        666        618        191         12 
+     13484      12020       5367       4742       4724       1214       1021        666        618        191         12 
            
          6 
