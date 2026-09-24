@@ -36,31 +36,16 @@ xwalk <- players %>%
 snap_season <- snaps %>%
   filter(game_type == "REG") %>%
   left_join(xwalk, by = c("pfr_player_id" = "pfr_id")) %>%
-  # offense_pct is the player's share of that game's team snaps, so snaps over
-  # pct backs out how many snaps the team ran while he was there.
-  mutate(
-    team_off = ifelse(offense_pct > 0, offense_snaps / offense_pct, NA_real_),
-    team_def = ifelse(defense_pct > 0, defense_snaps / defense_pct, NA_real_)
-  ) %>%
   group_by(gsis_id, season) %>%
   summarise(
-    # a row exists for every gameday roster spot, and 18% of them are zero snap
-    # games. counting rows would overstate how much the player actually played.
-    snap_games = sum(offense_snaps + defense_snaps > 0, na.rm = TRUE),
-    off_snaps  = sum(offense_snaps, na.rm = TRUE),
-    def_snaps  = sum(defense_snaps, na.rm = TRUE),
-    st_snaps   = sum(st_snaps,      na.rm = TRUE),
-    team_off   = sum(team_off,      na.rm = TRUE),
-    team_def   = sum(team_def,      na.rm = TRUE),
+    snap_games   = n(),
+    off_snaps    = sum(offense_snaps, na.rm = TRUE),
+    def_snaps    = sum(defense_snaps, na.rm = TRUE),
+    st_snaps     = sum(st_snaps,      na.rm = TRUE),
+    off_snap_pct = mean(offense_pct,  na.rm = TRUE),
+    def_snap_pct = mean(defense_pct,  na.rm = TRUE),
     .groups = "drop"
-  ) %>%
-  # season share, not the mean of per game shares. a three snap game should not
-  # count the same as a seventy snap game.
-  mutate(
-    off_snap_pct = ifelse(team_off > 0, off_snaps / team_off, NA_real_),
-    def_snap_pct = ifelse(team_def > 0, def_snaps / team_def, NA_real_)
-  ) %>%
-  select(-team_off, -team_def)
+  )
 
 # the id match is not perfect and i would rather count the misses than let them
 # disappear into a join.
