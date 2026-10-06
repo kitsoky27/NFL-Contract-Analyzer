@@ -3,6 +3,7 @@
 library(dplyr)
 source("R/features.R")
 source("R/attributes.R")
+source("R/draft.R")
 
 market  <- readRDS("data/processed/market.rds")
 ps      <- readRDS("data/processed/player_season.rds")
@@ -10,6 +11,7 @@ players <- readRDS("data/raw/players.rds")
 
 market$contract_id <- seq_len(nrow(market))
 market <- add_player_attributes(market, players)
+market <- add_draft_features(market)
 feat <- build_features(market, ps)
 
 saveRDS(market, "data/processed/market_keyed.rds")
@@ -34,6 +36,13 @@ cat("dropped as implausible, age:   ", sum(market$age_implausible, na.rm = TRUE)
     " experience:", sum(market$exp_implausible, na.rm = TRUE), "\n")
 cat("median age / experience:       ", round(median(market$age_signing, na.rm = TRUE), 1),
     "/", median(market$exp_years, na.rm = TRUE), "\n")
+
+cat("\ndrafted:                       ", sum(market$is_drafted),
+    sprintf("(%.1f%%)", 100 * mean(market$is_drafted)), "\n")
+cat("median cap share, round 1:     ",
+    sprintf("%.2f%%", 100 * median(market$apy_share[market$draft_round == 1], na.rm = TRUE)), "\n")
+cat("median cap share, undrafted:   ",
+    sprintf("%.2f%%", 100 * median(market$apy_share[!market$is_drafted])), "\n")
 
 cat("\n2011 signings with no prior season:",
     sum(is.na(feat$car_seasons[market$year_signed == 2011])),
