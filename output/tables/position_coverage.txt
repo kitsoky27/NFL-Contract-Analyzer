@@ -1,0 +1,30 @@
+position coverage, 2026-10-13
+share of contracts with a nonzero signal in the three year window before signing
+
+ position_tier position   n snaps passing rush_rec defense
+      measured       WR 557    91      10       98      96
+      measured       QB 343    87      98       90      55
+      measured       TE 337    91       1       99      92
+      measured       RB 335    92       5      100      88
+      measured       FB  60    83       0      100      97
+       partial      IDL 561    91       0        2     100
+       partial       LB 538    91       0        3     100
+       partial       CB 537    90       0        2     100
+       partial        S 484    91       1        8     100
+       partial       ED 460    91       0        0     100
+    usage_only       RT 203    89       0        4      64
+    usage_only        C 197    85       0        2      69
+    usage_only       LG 191    88       0        2      66
+    usage_only       LT 168    92       0        8      64
+    usage_only       RG 167    87       0        3      72
+      excluded       LS 117    17       0        0      99
+      excluded        K 112    10       2        4      71
+      excluded        P 106    12      34       13      82
+
+[contracts by tier]
+
+  excluded   measured    partial usage_only 
+       335       1632       2580        926 
+
+note: the defense column is a floor, not a measure. any single tackle in
+three years counts, which is why offensive linemen score above 60 on it.
