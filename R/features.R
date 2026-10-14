@@ -62,6 +62,9 @@ window_features <- function(prior, window = 3) {
     summarise(
       w_seasons  = n_distinct(season),
       w_games    = sum(games, na.rm = TRUE),
+      # games with a recorded snap, not games with a box score stat. the stats
+      # table undercounts linemen badly because they rarely record one.
+      w_snap_games = sum(snap_games, na.rm = TRUE),
       w_off_snaps = sum(off_snaps, na.rm = TRUE),
       w_def_snaps = sum(def_snaps, na.rm = TRUE),
       w_pass_yds = sum(pass_yds, na.rm = TRUE), w_pass_td = sum(pass_td, na.rm = TRUE),

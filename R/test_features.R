@@ -17,7 +17,7 @@ ok <- function(label, passed) {
 # a fake player season table with every column the feature builders touch, so
 # the tests do not depend on the real data files.
 fake_seasons <- function(id, seasons) {
-  cols <- c("games", "off_snaps", "def_snaps", "pass_yds", "pass_td", "pass_int",
+  cols <- c("games", "snap_games", "off_snaps", "def_snaps", "pass_yds", "pass_td", "pass_int",
             "pass_epa", "rush_yds", "rush_td", "rush_epa", "rec", "rec_yds",
             "rec_td", "rec_epa", "def_tackles", "def_sacks", "def_tfl",
             "def_qb_hits", "def_int", "def_pbu")

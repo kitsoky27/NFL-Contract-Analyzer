@@ -1,0 +1,25 @@
+model table, 2026-10-14
+
+[how the model sample was built]
+                   step rows dropped
+                  start 5473      NA
+     on field positions 5138     335
+   signed 2014 or later 4671     467
+ has prior play and age 4642      29
+   played in the window 4628      14
+
+[what is in it]
+contracts: 4628   players: 2624
+years: 2014 to 2026
+features: 33 plus the outcomes
+
+[contracts by tier]
+
+  measured    partial usage_only 
+      1471       2341        816 
+
+[outcome]
+apy share: median 1.43%, mean 2.70%, max 24.47%
+
+[features missing on more than 5% of rows]
+none
