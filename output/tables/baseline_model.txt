@@ -1,0 +1,37 @@
+baseline model, 2026-10-20
+outcome: log of average per year as a share of the salary cap
+
+contracts in the table:     4628
+dropped, drafted but no pick: 4
+contracts used:             4624
+
+[fit]
+  without position effects     r2 0.653   adj r2 0.650   residual sd 0.583   terms 41
+  with position effects        r2 0.671   adj r2 0.667   residual sd 0.568   terms 55
+
+position dummies add 0.018 to r2 once production is controlled for
+
+[selected coefficients, model without position effects]
+                 Estimate Std. Error  t value Pr(>|t|)
+snaps_per_game     0.0091     0.0010   9.5139   0.0000
+w_games            0.0147     0.0024   6.1378   0.0000
+last_off_pct       0.9461     0.0574  16.4886   0.0000
+played_lastTRUE   -0.1788     0.0701  -2.5494   0.0108
+age_signing       -0.2638     0.0488  -5.4031   0.0000
+age_sq             0.0040     0.0008   4.7774   0.0000
+exp_years         -0.0072     0.0111  -0.6485   0.5167
+is_draftedTRUE     0.6025     0.0497  12.1164   0.0000
+draft_pick_log    -0.1052     0.0099 -10.5931   0.0000
+contract_typeUFA  -0.6680     0.0264 -25.3514   0.0000
+
+a coefficient here is a change in log cap share, so roughly a percent
+change in price per unit of the variable.
+
+[extrapolation check]
+largest fitted cap share: 212.4% (actual max in the data: 24.5%)
+fitted values above the cap: 1 of 4624
+the model is linear in production and so cannot flatten out at the top.
+
+[residuals saved]
+rows: 4624
+mean -0.0000, sd 0.580
