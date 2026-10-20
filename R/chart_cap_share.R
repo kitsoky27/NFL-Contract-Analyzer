@@ -8,6 +8,7 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 library(scales)
+source("R/theme.R")
 
 market <- readRDS("data/processed/market.rds")
 dir.create("output/figures", recursive = TRUE, showWarnings = FALSE)
@@ -54,32 +55,18 @@ p <- ggplot(top5, aes(year_signed, top5_share)) +
   scale_y_continuous(labels = percent_format(accuracy = 1)) +
   scale_x_continuous(breaks = c(2012, 2018, 2024)) +
   labs(
-    title = "Top of the market by position, as a share of the salary cap",
+    title = "Top of the Market by Position, as a Share of the Salary Cap",
     subtitle = paste("Mean of the five largest free agent and extension contracts",
                      "signed at each position each year.",
                      "Dashed line is the fourteen-position average."),
-    x = NULL, y = "share of salary cap",
+    x = NULL, y = "Share of Salary Cap",
     caption = paste("Source: Over The Cap via nflreadr. 2011-2025 signings;",
                     "rookie deals, franchise tags and minimum contracts excluded.",
                     "Five contracts per point.")
   ) +
-  theme_bw(base_size = 10, base_family = "serif") +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major = element_line(colour = "grey92", linewidth = 0.25),
-    panel.border     = element_rect(colour = "grey40", linewidth = 0.4),
-    strip.background = element_rect(fill = "grey93", colour = "grey40",
-                                    linewidth = 0.4),
-    strip.text       = element_text(size = 9),
-    plot.title       = element_text(size = 12, hjust = 0),
-    plot.subtitle    = element_text(size = 8.5, colour = "grey30", lineheight = 1.1),
-    plot.caption     = element_text(size = 7, colour = "grey40", hjust = 0),
-    axis.title.y     = element_text(size = 8.5),
-    axis.text        = element_text(size = 7.5, colour = "grey25")
-  )
+  theme_contracts()
 
-ggsave("output/figures/cap_share_by_position.png", p,
-       width = 11, height = 5, dpi = 200, bg = "white")
+save_figure(p, "output/figures/cap_share_by_position.png", width = 11, height = 5)
 
 cat("cells with fewer than five contracts:", sum(top5$n_used < 5), "of", nrow(top5), "\n")
 cat("wrote output/figures/cap_share_by_position.png\n")

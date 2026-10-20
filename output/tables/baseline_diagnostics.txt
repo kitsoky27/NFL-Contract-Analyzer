@@ -1,0 +1,52 @@
+baseline diagnostics, 2026-10-20
+model: log cap share, no position effects, 4624 contracts
+
+[residual mean by signing year]
+year effects are in the model, so these should be zero. a nonzero value
+would mean the year terms are not doing their job.
+ year_signed   n mean_resid
+        2014 220          0
+        2015 253          0
+        2016 317          0
+        2017 322          0
+        2018 315          0
+        2019 336          0
+        2020 340          0
+        2021 362          0
+        2022 403          0
+        2023 411          0
+        2024 450          0
+        2025 477          0
+        2026 418          0
+
+[residual mean by position tier]
+these are not constrained to zero and they are the first look at the
+result the project is after.
+ position_tier    n mean_resid    sd
+      measured 1469      0.028 0.587
+       partial 2339     -0.008 0.563
+    usage_only  816     -0.026 0.614
+
+[residual spread across the fitted range]
+constant spread would mean the model is equally confident everywhere.
+ bin   n fitted_mid mean_resid    sd
+   1 925      -5.08      0.084 0.433
+   2 925      -4.61     -0.111 0.557
+   3 925      -4.19     -0.087 0.662
+   4 925      -3.76      0.043 0.669
+   5 924      -3.00      0.071 0.517
+
+[influence]
+contracts above 4/n cook's distance: 208 of 4624 (4.5%)
+largest cook's distance: 2.600
+
+[the floor]
+contracts within 1.5x the year's lowest deal: 1142 (24.7%)
+ contract_type    n at_floor
+     Extension  766     1.4%
+           UFA 3862    29.3%
+
+the league minimum is a hard floor, so the outcome is censored from below.
+a player on a minimum deal was not priced by the market, he took what was
+there. the model cannot predict below the floor but keeps trying, which is
+why residuals run positive at the bottom of the fitted range.

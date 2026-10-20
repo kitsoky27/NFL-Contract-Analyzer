@@ -4,6 +4,14 @@
 # median of 1.4%, so in levels a handful of quarterback deals would dominate the
 # fit. in logs a coefficient reads as a percent change in price.
 #
+# production enters as a signed log rather than a raw rate. the diagnostics in
+# diagnose_baseline.R showed the raw version predicting one contract at 212% of
+# the salary cap, which is not a price anyone can pay. a linear term has no
+# diminishing returns, and the top of this market plainly does.
+#
+# experience is out. it correlates 0.94 with age, the coefficient was
+# insignificant, and with both in neither is identified.
+#
 # the specification choice that matters is that position dummies are left out of
 # the main model on purpose. put them in and the average residual at every
 # position is zero by construction, which deletes the exact quantity this
@@ -42,14 +50,18 @@ tbl <- filter(tbl, !is.na(draft_pick_log))
 tbl <- tbl %>% mutate(age_sq = age_signing^2, year_f = factor(year_signed),
                       row_id = row_number())
 
-production <- c("pass_yds_pg", "pass_td_pg", "pass_int_pg", "pass_epa_pg",
-                "rush_yds_pg", "rush_td_pg", "rush_epa_pg",
-                "rec_pg", "rec_yds_pg", "rec_td_pg", "rec_epa_pg",
-                "tackles_pg", "sacks_pg", "tfl_pg", "qb_hits_pg",
-                "int_pg", "pbu_pg")
+raw_production <- c("pass_yds_pg", "pass_td_pg", "pass_int_pg", "pass_epa_pg",
+                    "rush_yds_pg", "rush_td_pg", "rush_epa_pg",
+                    "rec_pg", "rec_yds_pg", "rec_td_pg", "rec_epa_pg",
+                    "tackles_pg", "sacks_pg", "tfl_pg", "qb_hits_pg",
+                    "int_pg", "pbu_pg")
+
+# signed log, because epa can be negative and a plain log would drop it.
+for (v in raw_production) tbl[[paste0("l_", v)]] <- sign(tbl[[v]]) * log1p(abs(tbl[[v]]))
+production <- paste0("l_", raw_production)
 usage      <- c("snaps_per_game", "w_games", "games_per_season",
                 "last_off_pct", "last_def_pct", "played_last")
-player     <- c("age_signing", "age_sq", "exp_years", "is_drafted", "draft_pick_log")
+player     <- c("age_signing", "age_sq", "is_drafted", "draft_pick_log")
 deal       <- c("contract_type", "year_f")
 
 rhs  <- paste(c(production, usage, player, deal), collapse = " + ")
@@ -84,7 +96,7 @@ say(sprintf("\nposition dummies add %.3f to r2 once production is controlled for
 # the headline model is the one without position effects. these are the terms
 # that are not position specific, so they are the ones worth reading directly.
 say("\n[selected coefficients, model without position effects]")
-keep <- c("age_signing", "age_sq", "exp_years", "is_draftedTRUE", "draft_pick_log",
+keep <- c("age_signing", "age_sq", "is_draftedTRUE", "draft_pick_log",
           "contract_typeUFA", "snaps_per_game", "w_games", "last_off_pct",
           "played_lastTRUE")
 co <- summary(m_nopos)$coefficients
