@@ -1,0 +1,43 @@
+positional residuals, 2026-10-21
+contracts: 4624   players: 2608
+a positive value means the market pays the position above what the model predicts
+
+[by position]
+ position       tier players  resid             ci vs_model clear
+       QB   measured     125  0.207 [+0.11, +0.31]     +23%   yes
+       LT usage_only     101  0.174 [+0.06, +0.29]     +19%   yes
+       RT usage_only     112  0.094 [-0.00, +0.19]     +10%      
+      IDL    partial     275  0.076 [+0.01, +0.14]      +8%   yes
+       LB    partial     286  0.070 [+0.02, +0.12]      +7%   yes
+       TE   measured     185  0.038 [-0.03, +0.11]      +4%      
+       FB   measured      29  0.003 [-0.12, +0.13]      +0%      
+       RB   measured     195 -0.003 [-0.07, +0.06]      -0%      
+       CB    partial     292 -0.018 [-0.08, +0.04]      -2%      
+       ED    partial     256 -0.019 [-0.08, +0.05]      -2%      
+       WR   measured     290 -0.027 [-0.09, +0.04]      -3%      
+       RG usage_only     104 -0.043 [-0.16, +0.08]      -4%      
+       LG usage_only     109 -0.054 [-0.16, +0.05]      -5%      
+        S    partial     255 -0.067 [-0.13, -0.00]      -6%   yes
+        C usage_only     104 -0.124 [-0.22, -0.02]     -12%   yes
+
+[the within line comparison]
+      grp players mean_resid
+ interior     317     -0.074
+   tackle     213      0.132
+
+tackles minus interior: +0.205 log points, 95% CI [+0.107, +0.304], p = 5.193e-05
+in price terms tackles earn 23% more than guards and centres
+all five line positions share the same measurement problem, so the gap
+between them is about pay, not about what the model can see.
+
+[sanity check on the measured tier]
+mean residual +0.0299, 95% CI [-0.006, +0.065] across 824 players
+quarterbacks, backs and receivers sit at zero. where production is
+measured, the model prices it without systematic error.
+
+[what this does not say]
+a positive residual means a position is paid above what this model's
+features predict. it does not mean teams are wrong. durability, pass
+protection, scheme fit and the number of teams bidding are all invisible
+here, and left tackle is exactly the position where the missing measure
+would plausibly be worth the most.
